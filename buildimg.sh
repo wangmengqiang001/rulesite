@@ -45,6 +45,9 @@ fi
 #build image
 docker build -t siterule:latest .
 
+#call package
+./scripts/package.sh
+
 echo 'remove _site'
 rm -rf _site
 
