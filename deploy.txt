@@ -1,0 +1,8 @@
+在Nginx上部署codeRules包中的内容的步骤: 
+1） 解开压缩包(codeRules.tar.gz)
+2） 放置site,plugin两个目录中的内容到某个位置
+在nginx目录下创建目录codeRules, 把site,plugin两个目录复制到里面
+3)  修改nginx的配置文件发布内容
+把default.conf复制到nginx的conf目录下，修改nginx.conf文件，可以把default.conf中的内容粘贴到nginx.conf的http{...}中，也可以通过在http{...} 中增加inclue ./conf/default.conf的方式
+
+注: 以上在说明中把内容放置到nginx目录下，实际使用中可按需放置到其它目录中，对应修改nginx配置文件即可。
