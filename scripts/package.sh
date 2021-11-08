@@ -17,5 +17,6 @@ fi
 
 # zip the files 
 mv _site site
+# Maybe, zip is not installed
 zip -rv ./target/codeRules.zip nginx site plugins deploy.txt
 mv site _site
