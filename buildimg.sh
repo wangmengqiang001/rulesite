@@ -52,7 +52,7 @@ fi
 docker build -t siterule:latest .
 
 #then start it
-docker run -t --rm -p 8270:4000 siterule:latest
+docker run -d  --rm -p 8270:4000 siterule:latest
 
 #call package
 ./scripts/package.sh
