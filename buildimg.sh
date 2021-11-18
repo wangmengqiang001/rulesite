@@ -30,6 +30,12 @@ echo '_site from' $CODERULE_BASE
 
 cp -r $CODERULE_BASE _site
 
+# stop the running container first
+cid=docker ps -q --filter ancestor=siterule|awk '{print $1}'
+
+if [ ! -z $cid ]; then docker stop $cid; else echo 'not found'; fi
+
+
 # rm the local image 
  
 if [ ! -z $(docker images -q siterule:latest) ]; then 
@@ -44,6 +50,9 @@ fi
 
 #build image
 docker build -t siterule:latest .
+
+#then start it
+docker run -t --rm -p 8270:4000 siterule:latest
 
 #call package
 ./scripts/package.sh
