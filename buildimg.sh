@@ -31,7 +31,7 @@ echo '_site from' $CODERULE_BASE
 cp -r $CODERULE_BASE _site
 
 # stop the running container first
-cid=docker ps -q --filter ancestor=siterule|awk '{print $1}'
+cid=`docker ps -q --filter ancestor=siterule|awk '{print $1}'`
 
 if [ ! -z $cid ]; then docker stop $cid; else echo 'not found'; fi
 
