@@ -33,7 +33,13 @@ cp -r $CODERULE_BASE _site
 # stop the running container first
 cid=`docker ps -q --filter ancestor=siterule|awk '{print $1}'`
 
-if [ ! -z $cid ]; then docker stop $cid; else echo 'not found'; fi
+if [ ! -z $cid ]; then 
+   docker stop $cid;
+   sleep 3; 
+else 
+  echo 'not found'; 
+fi
+
 
 
 # rm the local image 
